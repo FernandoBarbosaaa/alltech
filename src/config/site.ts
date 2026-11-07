@@ -1,8 +1,14 @@
+export type ServiceCategoryType =
+  | "Segurança Eletrônica"
+  | "Instalações Elétricas"
+  | "Manutenção Elétrica"
+  | "Informática e Computadores";
+
 export interface ServiceItem {
   id: string;
   slug: string;
   title: string;
-  category: "Segurança Eletrônica" | "Instalações Elétricas" | "Manutenção Elétrica";
+  category: ServiceCategoryType;
   shortDescription: string;
   detailedDescription: string;
   benefits: string[];
@@ -15,7 +21,7 @@ export interface ServiceItem {
 export interface GalleryProject {
   id: string;
   title: string;
-  category: "Segurança Eletrônica" | "Instalações Elétricas" | "Manutenção Elétrica";
+  category: ServiceCategoryType;
   environment: string;
   description: string;
   image: string;
@@ -29,10 +35,11 @@ export interface GalleryProject {
  */
 export const SITE_CONFIG = {
   name: "Alltech Soluções",
-  legalName: "Alltech Soluções em Segurança Eletrônica e Elétrica",
+  legalName:
+    "Alltech Soluções em Segurança Eletrônica, Elétrica e Informática",
   slogan: "Sua segurança e tranquilidade em boas mãos",
   description:
-    "Empresa especializada em segurança eletrônica, instalação de câmeras de segurança (CFTV), monitoramento remoto pelo celular, instalações elétricas e manutenção elétrica para residências, empresas, estoques, condomínios e proteção de idosos.",
+    "Empresa especializada em segurança eletrônica, instalação de câmeras de segurança (CFTV), fechaduras eletrônicas, instalações e manutenção elétrica, além de montagem, formatação e manutenção de computadores e notebooks.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -58,13 +65,14 @@ export const SITE_CONFIG = {
     "Instalação de câmeras de segurança",
     "Instalação de CFTV",
     "Segurança eletrônica",
+    "Fechadura eletrônica",
     "Instalação elétrica",
     "Manutenção elétrica",
+    "Montagem e manutenção de computador e notebook",
+    "Formatação de computador e notebook",
+    "Upgrade de SSD e memória RAM",
     "Câmeras para condomínios",
     "Câmeras para empresas e residências",
-    "Monitoramento de idosos por câmeras",
-    "Aluguel de câmeras de segurança",
-    "Quadro elétrico organização",
     "Alltech Soluções",
   ],
 };
@@ -83,16 +91,16 @@ export function getWhatsAppUrl(customMessage?: string): string {
 export const TARGET_AUDIENCES = [
   {
     id: "residencias",
-    title: "Residências e Casas",
+    title: "Residências e Home Office",
     description:
-      "Proteção perimetral com câmeras de alta definição, acesso pelo celular em tempo real e instalações elétricas seguras para toda a família.",
+      "Proteção perimetral com câmeras CFTV, fechaduras eletrônicas, instalações elétricas seguras e manutenção/formatação de computadores e notebooks.",
     icon: "Home",
   },
   {
     id: "empresas",
     title: "Empresas e Comércios",
     description:
-      "Sistemas de CFTV estratégicos para lojas, escritórios e estabelecimentos comerciais, aliados a redes elétricas dimensionadas para operação contínua.",
+      "Sistemas de CFTV estratégicos, infraestrutura elétrica dimensionada e suporte em computadores e notebooks para manter sua empresa operando sem paradas.",
     icon: "Building2",
   },
   {
@@ -117,16 +125,16 @@ export const TARGET_AUDIENCES = [
     icon: "HeartHandshake",
   },
   {
-    id: "eletrica-geral",
-    title: "Projetos e Adequações Elétricas",
+    id: "informatica-eletrica",
+    title: "Usuários de PCs, Notebooks e Projetos Elétricos",
     description:
-      "Clientes que buscam organização de quadros elétricos, passagem estruturada de cabos, diagnóstico de falhas e eliminação de riscos de curto-circuito.",
-    icon: "Zap",
+      "Clientes que precisam de montagem de computadores, formatação rápida, upgrade de SSD/RAM, organização de quadros elétricos e coleta de descarte eletrônico.",
+    icon: "Laptop",
   },
 ];
 
 /**
- * OFERTAS EM DESTAQUE INSPIRADAS NAS REFERÊNCIAS VISUAIS DA ALLTECH SOLUÇÕES
+ * OFERTAS EM DESTAQUE INSPIRADAS NAS 4 REFERÊNCIAS VISUAIS DA ALLTECH SOLUÇÕES
  */
 export const FEATURED_PACKAGES = [
   {
@@ -150,7 +158,7 @@ export const FEATURED_PACKAGES = [
   {
     id: "kit-4-cameras",
     badge: "Solução Completa",
-    title: "Kit com 4 Câmeras Instalado",
+    title: "Kit com 4 Câmeras & Fechadura Digital",
     pricePrefix: "Projeto sob medida",
     price: "Kit 4 Câmeras",
     priceSuffix: "Full HD / IP",
@@ -158,7 +166,7 @@ export const FEATURED_PACKAGES = [
     features: [
       "4 câmeras de alta definição com visão noturna infravermelho",
       "Gravação contínua com acesso em tempo real no smartphone",
-      "Cabeamento organizado e acabamento profissional",
+      "Opção de integração com Fechadura Eletrônica Digital",
       "Ideal para residências, lojas, estoques e cuidado de idosos",
     ],
     referenceImage: "/images/referencias/kit-4-cameras.jpeg",
@@ -168,7 +176,7 @@ export const FEATURED_PACKAGES = [
   {
     id: "eletrica-segura",
     badge: "Engenharia & Precisão",
-    title: "Revisão e Adequação Elétrica",
+    title: "Revisão e Instalações Elétricas",
     pricePrefix: "Atendimento Técnico",
     price: "Elétrica Segura",
     priceSuffix: "Residencial & Comercial",
@@ -183,15 +191,32 @@ export const FEATURED_PACKAGES = [
     whatsappText:
       "Olá! Conheci sua empresa pelo site e gostaria de solicitar um orçamento para um serviço de Instalação ou Manutenção Elétrica.",
   },
+  {
+    id: "informatica-pc-notebook",
+    badge: "Performance & TI",
+    title: "Montagem, Formatação e Manutenção de PC e Notebook",
+    pricePrefix: "Assistência Especializada",
+    price: "PC & Notebook",
+    priceSuffix: "Rápido e Confiável",
+    subtitle: "Deixe seu computador ou notebook rápido, limpo e pronto para o trabalho",
+    features: [
+      "Formatação completa com backup seguro dos seus arquivos",
+      "Montagem de computadores sob medida (Casa, Escritório ou Gamer)",
+      "Upgrade de SSD NVMe e memória RAM para máxima velocidade",
+      "Limpeza interna, troca de pasta térmica e coleta de descarte eletrônico",
+    ],
+    referenceImage: "/images/referencias/flyer-completo-alltech.jpeg",
+    whatsappText:
+      "Olá! Conheci sua empresa pelo site e gostaria de solicitar um orçamento para manutenção, formatação ou montagem de computador/notebook.",
+  },
 ];
 
 /**
- * CATÁLOGO COMPLETO DOS 21 SERVIÇOS (ESTRITAMENTE NAS 3 CATEGORIAS EXIGIDAS)
- * Sem qualquer serviço de informática ou manutenção de computadores.
+ * CATÁLOGO COMPLETO DOS SERVIÇOS NAS 4 CATEGORIAS DA ALLTECH SOLUÇÕES
  */
 export const ALL_SERVICES: ServiceItem[] = [
   // ==========================================================================
-  // CATEGORIA 1: SEGURANÇA ELETRÔNICA (8 serviços)
+  // CATEGORIA 1: SEGURANÇA ELETRÔNICA (9 serviços)
   // ==========================================================================
   {
     id: "seg-1",
@@ -231,6 +256,26 @@ export const ALL_SERVICES: ServiceItem[] = [
     audiences: ["Empresas", "Condomínios", "Residências", "Galpões"],
     image: "/images/service-cftv.jpg",
     iconName: "MonitorPlay",
+  },
+  {
+    id: "seg-9",
+    slug: "instalacao-de-fechadura-eletronica",
+    title: "Instalação de Fechadura Eletrônica Digital",
+    category: "Segurança Eletrônica",
+    shortDescription:
+      "Instalação e configuração de fechaduras eletrônicas com abertura por biometria, senha, tag de proximidade ou aplicativo.",
+    detailedDescription:
+      "Modernize o controle de acesso da sua residência, escritório ou consultório com fechaduras eletrônicas digitais. Realizamos a furação técnica precisa na porta, alinhamento do batente e configuração de senhas e digitais.",
+    benefits: [
+      "Fim das preocupações com perda ou cópia de chaves",
+      "Travamento automático ao fechar a porta para máxima segurança",
+      "Cadastro rápido de digitais e senhas para familiares ou equipe",
+      "Acabamento estético sofisticado em portas de madeira ou vidro",
+    ],
+    audiences: ["Residências", "Apartamentos", "Escritórios", "Clínicas"],
+    image: "/images/hero-cameras.jpg",
+    iconName: "Lock",
+    highlightBadge: "Controle de Acesso",
   },
   {
     id: "seg-3",
@@ -605,6 +650,127 @@ export const ALL_SERVICES: ServiceItem[] = [
     image: "/images/service-manutencao.jpg",
     iconName: "ClipboardCheck",
   },
+
+  // ==========================================================================
+  // CATEGORIA 4: INFORMÁTICA E COMPUTADORES (6 serviços — Conforme Referência)
+  // ==========================================================================
+  {
+    id: "inf-1",
+    slug: "montagem-de-computadores-e-pc",
+    title: "Montagem de Computadores Sob Medida",
+    category: "Informática e Computadores",
+    shortDescription:
+      "Montagem profissional de computadores para home office, empresas, estudos e alto desempenho com cable management impecável.",
+    detailedDescription:
+      "Auxiliamos desde a escolha das peças compatíveis até a montagem técnica completa do seu computador desktop. Realizamos organização interna dos cabos (cable management) para fluxo de ar ideal, atualização de BIOS e testes de estabilidade.",
+    benefits: [
+      "Montagem limpa e organizada com excelente refrigeração interna",
+      "Orientação na escolha de peças com melhor custo-benefício",
+      "Configuração completa de BIOS, drivers e sistema operacional",
+      "Testes rigorosos de temperatura e desempenho antes da entrega",
+    ],
+    audiences: ["Home Office", "Empresas", "Estudantes", "Gamers"],
+    image: "/images/service-informatica.jpg",
+    iconName: "Cpu",
+    highlightBadge: "Montagem Profissional",
+  },
+  {
+    id: "inf-2",
+    slug: "manutencao-de-computadores-e-notebooks",
+    title: "Manutenção de Computadores e Notebooks",
+    category: "Informática e Computadores",
+    shortDescription:
+      "Diagnóstico e reparo de computadores e notebooks que não ligam, desligam sozinhos, apresentam tela azul ou lentidão extrema.",
+    detailedDescription:
+      "Realizamos manutenção preventiva e corretiva em desktops e notebooks de todas as marcas. Identificamos falhas em fontes, memórias, armazenamento, conectores, dobradiças, teclados e telas com diagnóstico rápido e transparente.",
+    benefits: [
+      "Correção de travamentos, desligamentos súbitos e erros de inicialização",
+      "Substituição segura de peças defeituosas (fontes, coolers, telas, teclados)",
+      "Recuperação da estabilidade para uso no trabalho ou nos estudos",
+      "Orçamento claro e detalhado antes de qualquer intervenção",
+    ],
+    audiences: ["Residências", "Empresas", "Comércios", "Profissionais"],
+    image: "/images/service-informatica.jpg",
+    iconName: "Laptop",
+    highlightBadge: "Referência Alltech",
+  },
+  {
+    id: "inf-3",
+    slug: "formatacao-e-instalacao-de-sistema",
+    title: "Formatação, Backup e Otimização de Sistema",
+    category: "Informática e Computadores",
+    shortDescription:
+      "Formatação completa de PCs e notebooks com backup seguro de arquivos, instalação do Windows, drivers oficiais e programas essenciais.",
+    detailedDescription:
+      "Devolva a velocidade de fábrica ao seu computador ou notebook. Fazemos o backup dos seus documentos, fotos e planilhas, instalamos o sistema operacional atualizado, todos os drivers originais, pacote de escritório e proteção antivírus.",
+    benefits: [
+      "Preservação segura dos seus arquivos importantes (fotos, documentos, dados)",
+      "Remoção completa de vírus, malwares e programas indesejados",
+      "Sistema otimizado para iniciar e abrir programas com máxima rapidez",
+      "Configuração pronta para uso imediato em casa ou na empresa",
+    ],
+    audiences: ["Usuários Domésticos", "Escritórios", "Estudantes", "Comércios"],
+    image: "/images/service-informatica.jpg",
+    iconName: "HardDrive",
+  },
+  {
+    id: "inf-4",
+    slug: "upgrade-de-ssd-e-memoria-ram",
+    title: "Upgrade de SSD NVMe e Memória RAM",
+    category: "Informática e Computadores",
+    shortDescription:
+      "Acelere seu notebook ou computador antigo em até 10x substituindo o HD lento por SSD de alta velocidade e ampliando a memória RAM.",
+    detailedDescription:
+      "Não precisa trocar de computador para ter velocidade! Instalamos unidades SSD SATA ou NVMe M.2 ultrarrápidas e módulos de memória RAM compatíveis, clonando ou reinstalando o sistema para que seu equipamento ligue em poucos segundos.",
+    benefits: [
+      "Inicialização do sistema em poucos segundos e abertura instantânea de apps",
+      "Mais fluidez para abrir várias abas do navegador e planilhas simultaneamente",
+      "Excelente economia em comparação à compra de um equipamento novo",
+      "Verificação exata de compatibilidade de barramento e frequência",
+    ],
+    audiences: ["Notebooks Lentos", "PCs de Escritório", "Home Office"],
+    image: "/images/service-informatica.jpg",
+    iconName: "Zap",
+  },
+  {
+    id: "inf-5",
+    slug: "limpeza-interna-e-troca-de-pasta-termica",
+    title: "Higienização Interna e Troca de Pasta Térmica",
+    category: "Informática e Computadores",
+    shortDescription:
+      "Limpeza técnica de coolers, dissipadores e placa-mãe com aplicação de pasta térmica de alta condutividade para evitar superaquecimento.",
+    detailedDescription:
+      "O acúmulo de poeira e o ressecamento da pasta térmica fazem o notebook ou PC esquentar, fazer barulho alto na ventoinha e perder desempenho. Realizamos a desmontagem cuidadosa, limpeza química/antiestática e renovação térmica.",
+    benefits: [
+      "Redução imediata da temperatura do processador e placa de vídeo",
+      "Eliminação de ruídos excessivos do cooler e desligamentos por calor",
+      "Aumento significativo da vida útil dos componentes eletrônicos",
+      "Prevenção de oxidação em placas e conectores",
+    ],
+    audiences: ["Notebooks", "PCs Corporativos", "PCs Gamers"],
+    image: "/images/service-informatica.jpg",
+    iconName: "Sparkles",
+  },
+  {
+    id: "inf-6",
+    slug: "coleta-de-descarte-eletronico",
+    title: "Coleta de Descarte de Equipamentos Eletrônicos",
+    category: "Informática e Computadores",
+    shortDescription:
+      "Recolhimento e destinação ambientalmente responsável de computadores, notebooks, celulares, cabos e eletrônicos em desuso.",
+    detailedDescription:
+      "Sabe aqueles equipamentos antigos, celulares quebrados, peças de computador e cabos parados ocupando espaço? Conforme nossa atuação de Coleta de Descarte, recebemos e destinamos corretamente resíduos eletrônicos para reciclagem tecnológica.",
+    benefits: [
+      "Descarte ecológico que evita contaminação do meio ambiente",
+      "Liberação de espaço em residências, escritórios e depósitos",
+      "Inutilização segura de mídias antigas antes do descarte",
+      "Compromisso socioambiental da Alltech Soluções",
+    ],
+    audiences: ["Residências", "Empresas", "Condomínios", "Comércios"],
+    image: "/images/referencias/flyer-completo-alltech.jpeg",
+    iconName: "Recycle",
+    highlightBadge: "Sustentabilidade",
+  },
 ];
 
 /**
@@ -657,6 +823,17 @@ export const GALLERY_PROJECTS: GalleryProject[] = [
     isIllustrativeExample: true,
   },
   {
+    id: "proj-7",
+    title: "Montagem, Upgrade de SSD e Manutenção de PC e Notebook",
+    category: "Informática e Computadores",
+    environment: "Laboratório Técnico Alltech",
+    description:
+      "Manutenção preventiva e corretiva de notebooks e computadores, formatação com backup, instalação de SSD NVMe e limpeza térmica.",
+    image: "/images/service-informatica.jpg",
+    specs: ["Formatação & Backup", "Upgrade SSD / RAM", "Limpeza Térmica"],
+    isIllustrativeExample: true,
+  },
+  {
     id: "proj-5",
     title: "Kit 4 Câmeras para Proteção Residencial e Comercial",
     category: "Segurança Eletrônica",
@@ -676,6 +853,17 @@ export const GALLERY_PROJECTS: GalleryProject[] = [
       "Referência visual oficial Alltech Soluções: modalidade de aluguel de câmeras a partir de R$ 199,99 com manutenção inclusa.",
     image: "/images/referencias/aluguel-cameras.jpeg",
     specs: ["A partir de R$ 199,99", "Pacotes Personalizados", "Suporte Incluso"],
+    isIllustrativeExample: false,
+  },
+  {
+    id: "proj-8",
+    title: "Portfólio Completo Alltech: Computadores, Elétrica, CFTV e Coleta",
+    category: "Informática e Computadores",
+    environment: "Referência Oficial Alltech Soluções",
+    description:
+      "Arte oficial Alltech Soluções reunindo montagem e manutenção de computador e notebook, serviços elétricos, fechadura eletrônica, sistema CFTV e coleta de descarte.",
+    image: "/images/referencias/flyer-completo-alltech.jpeg",
+    specs: ["PC & Notebook", "Elétrica & CFTV", "Coleta de Descarte"],
     isIllustrativeExample: false,
   },
 ];

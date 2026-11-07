@@ -8,7 +8,8 @@ import { createSupabaseServerClient } from "../supabase/server";
 export type ServiceCategory =
   | "Segurança Eletrônica"
   | "Instalações Elétricas"
-  | "Manutenção Elétrica";
+  | "Manutenção Elétrica"
+  | "Informática e Computadores";
 
 export interface UserRecord {
   id: string;
@@ -710,6 +711,7 @@ export async function createReview(
     "Segurança Eletrônica",
     "Instalações Elétricas",
     "Manutenção Elétrica",
+    "Informática e Computadores",
   ];
   const category: ServiceCategory = validCategories.includes(
     input.service_category

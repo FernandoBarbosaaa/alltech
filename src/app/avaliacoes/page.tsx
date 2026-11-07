@@ -33,6 +33,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   "Segurança Eletrônica",
   "Instalações Elétricas",
   "Manutenção Elétrica",
+  "Informática e Computadores",
 ];
 
 const REPORT_REASONS = [

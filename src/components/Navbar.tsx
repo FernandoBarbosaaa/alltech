@@ -46,7 +46,7 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-brand-300 font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Segurança Eletrônica, CFTV & Instalações Elétricas Profissionais
+              Segurança Eletrônica, CFTV, Instalações Elétricas & Manutenção de Computadores
             </span>
           </div>
           <div className="flex items-center gap-6">

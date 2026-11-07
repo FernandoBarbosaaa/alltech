@@ -37,10 +37,12 @@ export default function SobrePage() {
               Compromisso real com sua segurança e tranquilidade
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              A <strong>{SITE_CONFIG.name}</strong> atua com foco exclusivo em{" "}
+              A <strong>{SITE_CONFIG.name}</strong> atua com{" "}
               <strong>
                 segurança eletrônica, instalação de câmeras de monitoramento
-                (CFTV) e serviços de instalações e manutenção elétrica
+                (CFTV), fechaduras eletrônicas, instalações e manutenção
+                elétrica, além de montagem, formatação e manutenção de
+                computadores e notebooks
               </strong>
               , entregando soluções organizadas, confiáveis e sob medida.
             </p>
@@ -78,7 +80,11 @@ export default function SobrePage() {
               priorizamos a segurança contra sobrecargas e curtos-circuitos:
               organizamos quadros elétricos, identificamos circuitos, passamos
               cabeamento estruturado e realizamos diagnósticos precisos com
-              instrumentos adequados.
+              instrumentos adequados. E na área de{" "}
+              <strong>Informática e Computadores</strong>, realizamos montagem,
+              formatação com backup, upgrades de SSD/memória RAM e manutenção
+              completa de computadores e notebooks, além de coleta de descarte
+              eletrônico.
             </p>
           </div>
 
@@ -93,12 +99,12 @@ export default function SobrePage() {
             <div className="p-5 rounded-2xl bg-navy-900 text-white space-y-2">
               <div className="flex items-center gap-2 text-brand-300 font-bold text-sm">
                 <Lock className="w-4 h-4 text-accent-400" />
-                <span>Dedicação Exclusiva</span>
+                <span>Soluções Integradas</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Trabalhamos exclusivamente com sistemas de segurança eletrônica
-                (CFTV) e serviços elétricos residenciais, comerciais e
-                empresariais.
+                Segurança eletrônica (CFTV e fechaduras digitais), serviços
+                elétricos e assistência técnica especializada em computadores e
+                notebooks em um só lugar.
               </p>
             </div>
           </div>

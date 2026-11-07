@@ -9,6 +9,7 @@ const CATEGORIES = [
   "Segurança Eletrônica",
   "Instalações Elétricas",
   "Manutenção Elétrica",
+  "Informática e Computadores",
 ] as const;
 
 export function GallerySection() {

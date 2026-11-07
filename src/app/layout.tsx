@@ -22,7 +22,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} | Segurança Eletrônica, Câmeras CFTV e Instalações Elétricas`,
+    default: `${SITE_CONFIG.name} | Segurança Eletrônica, Elétrica e Manutenção de Computadores`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
@@ -89,6 +89,13 @@ export default function RootLayout({
           itemOffered: {
             "@type": "Service",
             name: "Manutenção Elétrica Preventiva, Corretiva e Diagnóstico",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Montagem, Formatação e Manutenção de Computadores e Notebooks",
           },
         },
       ],

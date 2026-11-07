@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS public.reviews (
   public_name TEXT NOT NULL,
   rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
   service_category TEXT NOT NULL DEFAULT 'Segurança Eletrônica'
-    CHECK (service_category IN ('Segurança Eletrônica', 'Instalações Elétricas', 'Manutenção Elétrica')),
+    CHECK (service_category IN ('Segurança Eletrônica', 'Instalações Elétricas', 'Manutenção Elétrica', 'Informática e Computadores')),
   comment TEXT NOT NULL CHECK (char_length(trim(comment)) >= 10),
   status TEXT NOT NULL DEFAULT 'approved'
     CHECK (status IN ('pending', 'approved', 'rejected')),

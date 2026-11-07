@@ -5,6 +5,7 @@ import {
   Camera,
   Zap,
   Wrench,
+  Laptop,
   CheckCircle2,
   PhoneCall,
   ShieldCheck,
@@ -19,9 +20,10 @@ import {
 } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Serviços de Segurança Eletrônica, CFTV e Instalações Elétricas",
+  title:
+    "Serviços de Segurança Eletrônica, CFTV, Instalações Elétricas e Manutenção de Computadores",
   description:
-    "Conheça todos os serviços da Alltech Soluções: instalação de câmeras de segurança, sistemas de CFTV, monitoramento de estoques, condomínios e idosos, instalações elétricas e manutenção elétrica.",
+    "Conheça todos os serviços da Alltech Soluções: instalação de câmeras de segurança (CFTV), fechaduras eletrônicas, instalações e manutenção elétrica, além de montagem, formatação e manutenção de computadores e notebooks.",
 };
 
 function ServiceCategoryBlock({
@@ -173,6 +175,9 @@ export default function ServicosPage() {
   const electricalMaintServices = ALL_SERVICES.filter(
     (s) => s.category === "Manutenção Elétrica"
   );
+  const computerServices = ALL_SERVICES.filter(
+    (s) => s.category === "Informática e Computadores"
+  );
 
   return (
     <div className="bg-slate-50 pb-24">
@@ -186,36 +191,44 @@ export default function ServicosPage() {
               Catálogo Completo • {SITE_CONFIG.name}
             </span>
             <h1 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight">
-              Soluções em Segurança Eletrônica e Serviços Elétricos
+              Segurança Eletrônica, Elétrica e Manutenção de Computadores
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Confira em detalhes todas as nossas soluções para residências,
-              empresas, estoques, condomínios e famílias que buscam proteção e
-              instalações elétricas confiáveis.
+              Confira em detalhes todas as nossas soluções em câmeras de
+              segurança (CFTV), fechaduras eletrônicas, instalações e manutenção
+              elétrica, além de montagem, formatação e manutenção de
+              computadores e notebooks.
             </p>
 
-            {/* Atalhos Rápidos para as 3 Categorias */}
+            {/* Atalhos Rápidos para as 4 Categorias */}
             <div className="pt-4 flex flex-wrap gap-3">
               <a
                 href="#seguranca-eletronica"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-600 hover:bg-brand-500 text-white transition-all"
               >
                 <Camera className="w-4 h-4" />
-                Segurança Eletrônica (8)
+                Segurança Eletrônica ({securityServices.length})
               </a>
               <a
                 href="#instalacoes-eletricas"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-all"
               >
                 <Zap className="w-4 h-4 text-accent-400" />
-                Instalações Elétricas (7)
+                Instalações Elétricas ({electricalInstallServices.length})
               </a>
               <a
                 href="#manutencao-eletrica"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-all"
               >
                 <Wrench className="w-4 h-4 text-emerald-400" />
-                Manutenção Elétrica (6)
+                Manutenção Elétrica ({electricalMaintServices.length})
+              </a>
+              <a
+                href="#informatica-computadores"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-all"
+              >
+                <Laptop className="w-4 h-4 text-cyan-400" />
+                Computadores & Notebooks ({computerServices.length})
               </a>
             </div>
           </div>
@@ -251,6 +264,16 @@ export default function ServicosPage() {
           subtitle="Identificação rápida de falhas elétricas, diagnóstico instrumental de sobrecargas e curtos, substituição de componentes e revisão completa de instalações."
           icon={<Wrench className="w-4 h-4 text-emerald-400" />}
           services={electricalMaintServices}
+        />
+
+        {/* Seção 4: Informática e Computadores */}
+        <ServiceCategoryBlock
+          id="informatica-computadores"
+          badge="Informática e Computadores"
+          title="Montagem, Formatação e Manutenção de Computadores e Notebooks"
+          subtitle="Assistência técnica completa para computadores desktop e notebooks: montagem sob medida, formatação com backup seguro, upgrade de SSD NVMe e memória RAM, limpeza térmica e coleta de descarte de eletrônicos."
+          icon={<Laptop className="w-4 h-4 text-cyan-400" />}
+          services={computerServices}
         />
 
         {/* Pacotes Especiais das Referências Alltech */}

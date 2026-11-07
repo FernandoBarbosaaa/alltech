@@ -87,8 +87,9 @@ export default function ContatoPage() {
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
               Entre em contato pelo WhatsApp, telefone ou preencha o formulário
-              abaixo para projetos de câmeras de segurança (CFTV), instalações
-              elétricas ou manutenção elétrica.
+              abaixo para projetos de câmeras de segurança (CFTV), fechaduras
+              eletrônicas, instalações e manutenção elétrica, ou montagem,
+              formatação e manutenção de computadores e notebooks.
             </p>
           </div>
         </div>
@@ -283,6 +284,12 @@ export default function ContatoPage() {
                       </option>
                       <option value="Manutenção Elétrica">
                         Manutenção Elétrica Preventiva ou Corretiva
+                      </option>
+                      <option value="Informática e Computadores">
+                        Montagem, Formatação e Manutenção de PC e Notebook
+                      </option>
+                      <option value="Coleta de Descarte Eletrônico">
+                        Coleta de Descarte de Equipamentos Eletrônicos
                       </option>
                     </select>
                   </div>

@@ -17,6 +17,7 @@ import {
   Lock,
   Sparkles,
   ClipboardCheck,
+  Laptop,
 } from "lucide-react";
 import {
   ALL_SERVICES,
@@ -38,6 +39,9 @@ export default function HomePage() {
   const electricalMaintServices = ALL_SERVICES.filter(
     (s) => s.category === "Manutenção Elétrica"
   );
+  const computerServices = ALL_SERVICES.filter(
+    (s) => s.category === "Informática e Computadores"
+  );
 
   const audienceIcons: Record<string, React.ReactNode> = {
     Home: <Home className="w-6 h-6 text-brand-400" />,
@@ -46,6 +50,7 @@ export default function HomePage() {
     Building: <Building className="w-6 h-6 text-brand-400" />,
     HeartHandshake: <HeartHandshake className="w-6 h-6 text-accent-400" />,
     Zap: <Zap className="w-6 h-6 text-accent-400" />,
+    Laptop: <Laptop className="w-6 h-6 text-brand-400" />,
   };
 
   return (
@@ -72,7 +77,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/15 border border-brand-400/30 text-brand-300 text-xs sm:text-sm font-semibold">
                 <ShieldCheck className="w-4 h-4 text-brand-400 shrink-0" />
                 <span>
-                  Segurança Eletrônica • Câmeras CFTV • Serviços Elétricos
+                  Segurança Eletrônica • CFTV • Serviços Elétricos • PCs & Notebooks
                 </span>
               </div>
 
@@ -86,12 +91,11 @@ export default function HomePage() {
               <p className="text-lg sm:text-xl text-slate-200 leading-relaxed max-w-2xl">
                 Soluções completas em{" "}
                 <strong className="text-white">
-                  instalação de câmeras de segurança, sistemas de CFTV com
-                  acesso pelo celular, instalações elétricas e manutenção
-                  elétrica
+                  instalação de câmeras de segurança (CFTV), fechaduras
+                  eletrônicas, instalações e manutenção elétrica, além de
+                  montagem, formatação e manutenção de computadores e notebooks
                 </strong>{" "}
-                para residências, empresas, estoques, condomínios e proteção de
-                idosos em casa.
+                para residências, empresas, estoques e condomínios.
               </p>
 
               {/* Botões Principais Exigidos */}
@@ -196,7 +200,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {FEATURED_PACKAGES.map((pkg, idx) => (
               <div
                 key={pkg.id}
@@ -312,9 +316,10 @@ export default function HomePage() {
               Nossas Categorias de Serviços
             </h2>
             <p className="text-slate-600 mt-3 text-base sm:text-lg">
-              Atuamos exclusivamente com{" "}
+              Atuamos com{" "}
               <strong>
-                Segurança Eletrônica, Instalações Elétricas e Manutenção Elétrica
+                Segurança Eletrônica, Instalações Elétricas, Manutenção Elétrica
+                e Montagem/Manutenção de Computadores e Notebooks
               </strong>
               , entregando alto padrão técnico em cada atendimento.
             </p>
@@ -477,6 +482,61 @@ export default function HomePage() {
                   <Link
                     href={`/servicos#${service.slug}`}
                     className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800"
+                  >
+                    Detalhes e orçamento <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CATEGORIA 4: INFORMÁTICA E COMPUTADORES */}
+          <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
+              <div className="lg:col-span-7 space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 text-cyan-800 text-xs font-bold uppercase tracking-wider border border-cyan-200">
+                  <Laptop className="w-4 h-4 text-cyan-600" />
+                  Categoria 04
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-navy-900">
+                  Montagem, Formatação e Manutenção de Computadores e Notebooks
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Assistência especializada em computadores desktop e notebooks:
+                  montagem sob medida, formatação com backup seguro, upgrade de
+                  SSD NVMe e memória RAM, limpeza térmica e coleta de descarte
+                  eletrônico.
+                </p>
+              </div>
+              <div className="lg:col-span-5">
+                <img
+                  src="/images/service-informatica.jpg"
+                  alt="Montagem, formatação e manutenção de computadores e notebooks Alltech Soluções"
+                  className="w-full h-56 object-cover rounded-2xl shadow-md"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {computerServices.map((service) => (
+                <div
+                  key={service.id}
+                  className="p-5 rounded-2xl bg-slate-50 hover:bg-cyan-50/40 border border-slate-200/80 hover:border-cyan-300 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-9 h-9 rounded-lg bg-navy-900 text-brand-400 flex items-center justify-center mb-3">
+                      <Laptop className="w-5 h-5" />
+                    </div>
+                    <h4 className="font-display font-bold text-navy-900 text-base">
+                      {service.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                      {service.shortDescription}
+                    </p>
+                  </div>
+                  <Link
+                    href={`/servicos#${service.slug}`}
+                    className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:text-brand-700"
                   >
                     Detalhes e orçamento <ArrowRight className="w-3.5 h-3.5" />
                   </Link>

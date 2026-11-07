@@ -8,6 +8,7 @@ import {
   Camera,
   Zap,
   Wrench,
+  Laptop,
   Clock,
   ArrowUpRight,
 } from "lucide-react";
@@ -63,9 +64,10 @@ export function Footer() {
           <div className="space-y-4">
             <AlltechLogo variant="light" size="md" />
             <p className="text-sm text-slate-400 leading-relaxed">
-              Especialistas em segurança eletrônica, instalação de câmeras de
-              segurança (CFTV), monitoramento remoto pelo celular, instalações
-              elétricas e manutenção elétrica preventiva e corretiva.
+              Especialistas em segurança eletrônica, câmeras de segurança
+              (CFTV), fechaduras eletrônicas, instalações e manutenção elétrica,
+              além de montagem, formatação e manutenção de computadores e
+              notebooks.
             </p>
             <div className="pt-2 flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1 text-xs font-medium bg-brand-500/15 text-brand-300 px-2.5 py-1 rounded-md border border-brand-500/30">
@@ -73,6 +75,9 @@ export function Footer() {
               </span>
               <span className="inline-flex items-center gap-1 text-xs font-medium bg-amber-500/15 text-amber-300 px-2.5 py-1 rounded-md border border-amber-500/30">
                 <Zap className="w-3.5 h-3.5" /> Serviços Elétricos
+              </span>
+              <span className="inline-flex items-center gap-1 text-xs font-medium bg-cyan-500/15 text-cyan-300 px-2.5 py-1 rounded-md border border-cyan-500/30">
+                <Laptop className="w-3.5 h-3.5" /> PCs & Notebooks
               </span>
             </div>
           </div>
@@ -135,6 +140,15 @@ export function Footer() {
                 >
                   <Wrench className="w-4 h-4 text-emerald-400 shrink-0" />
                   Manutenção Preventiva, Corretiva e Diagnóstico
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/servicos#informatica-computadores"
+                  className="hover:text-brand-400 transition-colors flex items-center gap-2"
+                >
+                  <Laptop className="w-4 h-4 text-cyan-400 shrink-0" />
+                  Montagem, Formatação e Manutenção de PC e Notebook
                 </Link>
               </li>
             </ul>

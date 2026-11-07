@@ -25,6 +25,7 @@ const CATEGORIES: ServiceCategory[] = [
   "Segurança Eletrônica",
   "Instalações Elétricas",
   "Manutenção Elétrica",
+  "Informática e Computadores",
 ];
 
 export default function MinhaContaPage() {
